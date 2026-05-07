@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexAttend | AI Academic Risk Detection</title>
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+    <div class="landing-page" id="landingPage">
+        <header class="hero-section">
+            <p class="eyebrow">IIoT Academic Intelligence System</p>
+            <h1 class="hero-title">NexAttend</h1>
+            <h2 class="hero-subtitle">AI-Based Academic Risk Detection System</h2>
+            <p class="hero-description">
+                NexAttend connects biometric attendance collection with AI-based risk analysis,
+                helping faculty identify students who may need academic support before performance drops.
+            </p>
+
+            <div class="button-container">
+                <button class="primary-btn" onclick="showDashboard()">Launch Dashboard -></button>
+                <a href="#architectureSection" class="secondary-btn">View Architecture</a>
+            </div>
+        </header>
+
+        <section class="feature-grid" aria-label="Project features">
+            <article class="feature-card">
+                <span class="feature-kicker">01</span>
+                <h3>Biometric Attendance</h3>
+                <p>ESP32 and fingerprint sensing capture attendance events and send them to the academic data store.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-kicker">02</span>
+                <h3>AI Risk Prediction</h3>
+                <p>A PyTorch classifier analyses attendance percentage, absence streaks, recent trends, and marks.</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-kicker">03</span>
+                <h3>Teacher Dashboard</h3>
+                <p>Faculty can review risk status, confidence, and reasons for each student in one clean interface.</p>
+            </article>
+        </section>
+
+        <section class="architecture-section" id="architectureSection">
+            <div>
+                <p class="eyebrow">System Flow</p>
+                <h3>Project Architecture</h3>
+            </div>
+            <div class="architecture-flow">
+                <span>Fingerprint Sensor</span>
+                <span>ESP32</span>
+                <span>Google Sheets</span>
+                <span>PyTorch Model</span>
+                <span>Risk Dashboard</span>
+            </div>
+        </section>
+
+        <section class="team-strip" aria-label="Project team">
+            <div>
+                <span>Team</span>
+                <strong>Harsh Vardhan</strong>
+                <strong>Trisha Verma</strong>
+                <strong>Mehak Srivastava</strong>
+            </div>
+            <div>
+                <span>Focus</span>
+                <strong>IIoT + AI Academic Monitoring</strong>
+            </div>
+        </section>
+    </div>
+
+    <div class="dashboard" id="dashboardPage">
+        <button class="back-btn" type="button" onclick="showLandingPage()"><- Back to Home</button>
+
+        <main class="container">
+            <header class="dashboard-header">
+                <div>
+                    <p class="eyebrow">Faculty Console</p>
+                    <h2>Student Academic Dashboard</h2>
+                </div>
+                <button class="secondary-btn professor-login-shortcut" type="button" onclick="showLoginModal()">Professor Login</button>
+            </header>
+
+            <section class="dashboard-metrics" aria-label="Dashboard overview">
+                <div class="metric-card">
+                    <span>Data Source</span>
+                    <strong>Sheets / Demo Data</strong>
+                </div>
+                <div class="metric-card">
+                    <span>AI Model</span>
+                    <strong>PyTorch Classifier</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Output</span>
+                    <strong>Risk Probability</strong>
+                </div>
+            </section>
+
+            <section class="control-panel" aria-label="Dashboard controls">
+                <div>
+                    <label for="batchSelector">Batch</label>
+                    <select id="batchSelector" class="batch-dropdown">
+                        <option value="ALL">All</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                    </select>
+                </div>
+                <div id="enrollSearchContainer">
+                    <label for="searchBox">Enrollment</label>
+                    <input type="text" id="searchBox" placeholder="Single, comma list, or range">
+                </div>
+                <div>
+                    <label for="riskFilter">AI Filter</label>
+                    <select id="riskFilter" class="batch-dropdown">
+                        <option value="ALL">All Students</option>
+                        <option value="At Risk">At Risk</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Not At Risk">Not At Risk</option>
+                    </select>
+                </div>
+            </section>
+
+            <div class="course-tabs" id="courseTabs"></div>
+
+            <section class="ai-risk-panel" aria-labelledby="aiRiskTitle">
+                <div class="ai-risk-header">
+                    <div>
+                        <p class="eyebrow">Predictive Alerting</p>
+                        <h3 id="aiRiskTitle">AI Risk Analysis</h3>
+                        <p id="aiRiskModelStatus">Waiting for attendance data...</p>
+                    </div>
+                    <button class="btn" type="button" onclick="refreshAIRiskAnalysis()">Refresh AI Analysis</button>
+                </div>
+
+                <div class="model-detail-grid">
+                    <div><span>Features</span><strong>Attendance %, Absence Streak, Recent Trend, Marks</strong></div>
+                    <div><span>Classes</span><strong>At Risk, Monitor, Not At Risk</strong></div>
+                    <div><span>Action</span><strong>Teacher review list</strong></div>
+                </div>
+
+                <div class="ai-risk-summary" id="aiRiskSummary"></div>
+                <div class="risk-list-container" id="riskListContainer"></div>
+            </section>
+
+            <section class="attendance-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Raw Academic Data</p>
+                        <h3>Attendance Records</h3>
+                    </div>
+                </div>
+                <div id="tablesContainer"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js?v=4"></script>
+</body>
+</html>

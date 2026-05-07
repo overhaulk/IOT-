@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexAttend Teacher Data Console</title>
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+    <main class="dashboard teacher-console">
+        <a class="back-btn" href="index.html"><- Back to Dashboard</a>
+        <section class="container">
+            <header class="dashboard-header">
+                <div>
+                    <p class="eyebrow">Teacher Data Access</p>
+                    <h2>Attendance Data Console</h2>
+                </div>
+            </header>
+
+            <section class="dashboard-metrics">
+                <div class="metric-card">
+                    <span>Current Mode</span>
+                    <strong>Local Demo Data</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Subjects</span>
+                    <strong>IOT, Java</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Next Step</span>
+                    <strong>Connect Your Sheet</strong>
+                </div>
+            </section>
+
+            <section class="ai-risk-panel">
+                <div class="ai-risk-header">
+                    <div>
+                        <p class="eyebrow">Raw Data Files</p>
+                        <h3>Demo Sheet Replacements</h3>
+                        <p>The original professor login pointed to a Google Sheet you do not have. For now, the dashboard uses these local JSON files as sheet-like data.</p>
+                    </div>
+                </div>
+
+                <div class="model-detail-grid">
+                    <div><span>IOT</span><strong><a href="data/IOT.json">frontend/data/IOT.json</a></strong></div>
+                    <div><span>Java</span><strong><a href="data/Java.json">frontend/data/Java.json</a></strong></div>
+                    <div><span>Dashboard</span><strong>Falls back automatically</strong></div>
+                </div>
+            </section>
+
+            <section class="attendance-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Integration Note</p>
+                        <h3>When You Create Your Own Google Sheet</h3>
+                    </div>
+                </div>
+                <p class="teacher-note">
+                    Use the same columns as the demo JSON: Name, Enrollment, attendance dates, Required, Can Skip, MID SEM, and INTERNAL.
+                    Then update the Apps Script URL in <strong>frontend/script.js</strong> and the posting URL in <strong>arduino/attendance_device.ino</strong>.
+                </p>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
